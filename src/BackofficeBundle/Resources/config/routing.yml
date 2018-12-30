@@ -1,0 +1,91 @@
+backoffice_homepage:
+    path:     /backoffice
+    defaults: { _controller: BackofficeBundle:Default:index }
+    
+liste_annonces:
+    path:     /annonces
+    defaults: { _controller: BackofficeBundle:Default:tousannonces }
+    
+delete_annonce:
+    path:     /delete_annonce
+    defaults: { _controller: BackofficeBundle:Default:DeleteAnnonce }
+    methods:  GET
+    
+devis_annonce:
+    path:     /devis_annonce
+    defaults: { _controller: BackofficeBundle:Default:devis }
+    methods:  GET
+    
+liste_users:
+    path:     /utilisateurs
+    defaults: { _controller: BackofficeBundle:Responsable:ListeResponsbales }
+
+ajout_annonce:
+    path:     /ajout_annonce
+    defaults: { _controller: BackofficeBundle:Default:ajoutannonces }
+    
+annonce_cloture:
+    path:     /ajout_annonce_cloture.html
+    defaults: { _controller: BackofficeBundle:Default:annoncecloture }
+    
+add_annonce_cloture:
+    path:     /valide_annonce_cloture.html
+    defaults: { _controller: BackofficeBundle:Default:Addannoncecloture }
+    methods:  POST
+    
+    
+edit_annonce:
+    path:     /edit_annonce
+    defaults: { _controller: BackofficeBundle:Default:EditAnnonce }
+
+edit_contact:
+    path:     /edit_infocontact
+    defaults: { _controller: BackofficeBundle:Default:EditContact }
+
+    
+edit_valide_contact:
+    path:     /valid_edit_contact
+    defaults: { _controller: BackofficeBundle:Default:valideeditContact }
+   
+visualiser_annonce:
+    path:     /view_annonce
+    defaults: { _controller: BackofficeBundle:Default:ViewAnnonce }
+    
+visualiser_contact:
+    path:     /info_contact
+    defaults: { _controller: BackofficeBundle:Default:ViewContact }
+    
+    
+add_utilisateur:
+    path:     /register/
+    defaults: { _controller: BackofficeBundle:Responsable:AddResponsables }
+    
+valide_user:
+    path:     /register/confirmed
+    defaults: { _controller: BackofficeBundle:Responsable:ValideResponsable }
+    methods:  POST
+    
+delete_user:
+    path:     /delete_user
+    defaults: { _controller: BackofficeBundle:Responsable:DeleteResponsable }
+    
+edit_user:
+    path:     /edit_user
+    defaults: { _controller: BackofficeBundle:Responsable:EditResponsable }
+    
+edit_valide_user:   
+    path:     /valid_edit_user
+    defaults: { _controller: BackofficeBundle:Responsable:valideeditResponsable }
+    
+edit_valide_annonce:
+    path:     /valid_edit_annonce
+    defaults: { _controller: BackofficeBundle:Default:valideeditAnnonce }
+    
+    
+edit_accueil:
+    path:     /edit_accueil
+    defaults: { _controller: BackofficeBundle:Accueil:acceuil }
+    
+add_annonce_commerciale:
+    path:     /ajout_annonce_sct_commerciale.html
+    defaults: { _controller: BackofficeBundle:Sctcommercial:AddAnnoncesctcommerciale }

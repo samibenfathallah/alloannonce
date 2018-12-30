@@ -1,0 +1,54 @@
+BackofficeBundle\Entity\Annonces_cloture:
+    type: entity
+    table: null
+    repositoryClass: BackofficeBundle\Repository\Annonces_clotureRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        adresse:
+            type: text
+        codePostal:
+            type: text
+            column: code_postal
+        villeDuGreffe:
+            type: text
+            column: ville_du_greffe
+        complementAdresse:
+            type: text
+            column: complement_adresse
+        ville:
+            type: text
+        societe:
+            type: text
+        capital:
+            type: text
+        formeJurique:
+            type: text
+            column: forme_jurique
+        nrcs:
+            type: text
+        typeAssemblee:
+            type: text
+            column: type_assemblee
+        dateAssemblee:
+            type: text
+            column: date_assemblee
+        dateEffet:
+            type: text
+            column: date_effet
+        typeAssemble2:
+            type: text
+            column: type_assemble2
+        liquidateur:
+            type: text
+        typeannonce:
+            type: text
+        publierpar:
+            type: text
+        datepublication:
+            type: text
+    lifecycleCallbacks: {  }

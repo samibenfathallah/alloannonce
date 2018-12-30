@@ -1,0 +1,75 @@
+{% block footer %}
+<!-- jQuery 3 -->
+<script src="{{ asset ('bundles/backoffice/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset ('bundles/backoffice/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{ asset ('bundles/backoffice/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{ asset ('bundles/backoffice/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset ('bundles/backoffice/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset ('bundles/backoffice/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{ asset ('bundles/backoffice/dist/js/adminlte.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{ asset ('bundles/backoffice/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<!-- jvectormap  -->
+<script src="{{ asset ('bundles/backoffice/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{ asset ('bundles/backoffice/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- SlimScroll -->
+<script src="{{ asset ('bundles/backoffice/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{ asset ('bundles/backoffice/bower_components/chart.js/Chart.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!--script src="{{ asset ('bundles/backoffice/dist/js/pages/dashboard2.js')}}"></script-->
+<!-- jQuery 3 -->
+
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset ('bundles/backoffice/dist/js/demo.js')}}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+<script>
+			$( "#typegerant" )
+				.change(function () {
+				
+				if($( this ).val()=='')
+					{
+					$('#personne').css({"display":"none"});
+					$('#societe').css({"display":"none"});
+					
+					}
+				
+				if($( this ).val()==1)
+					{
+					$('#personne').css({"display":"block"});
+					$('#societe').css({"display":"none"});
+					$('#societe').html("");
+					$('#personne').html('<div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Civilité  <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><select name="civilit" class="form-control col-md-7 col-xs-12"><option value="">- Sélectionner une valeur -</option><option value="1">M.</option><option value="2">M</option><option value="3">Mlle</option><option value="4">Doct.</option><option value="5">Me.</option></select></div></div><br style="clear: both"><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Prénom   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="prenom" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Nom   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="nom" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Adresse   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="adresse" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Complément d’adresse   <span class="required"></span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="cmpadresse"  class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Code postal   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="codepostal" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Ville   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="ville" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><div class="col-md-8 col-sm-8 col-xs-12"><input type="checkbox" name="residant" class="form-check-input" id="exampleCheck1"><label class="form-check-label" for="exampleCheck1">Résidant à l’étranger</label></div></div>');
+					
+					}
+				if($( this ).val()==2)
+					{
+					$('#societe').css({"display":"block"});
+					$('#personne').css({"display":"none"});
+					$('#personne').html("");
+					$('#societe').html('<div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Nom de la société  <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="nomsociete" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Forme juridique de la société   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><select name="formejuridique" class="form-control col-md-7 col-xs-12"><option value="">- Sélectionner une valeur -</option><option value="1">SARL unipersonnelle</option><option value="2">SARL unipersonnelle à capital variable</option><option value="3">SARL</option><option value="4">SARL à capital variable</option><option value="5">SELARL</option><option value="6">SELARL à capital variable</option><option value="7">SAS</option><option value="8">SAS à capital variable</option><option value="9">SASU</option><option value="10">SASU à capital variable</option><option value="11">SA</option><option value="12">SCI</option></select></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Capital   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="capital" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> N° RCS    <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="nrcs" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Nom et prénom du représentant légal   <span class="required"></span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="npresplegal"  class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Adresse    <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="adresse" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Complément d’adresse</label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="complementadresse"  class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Code postal   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="codepostal" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Ville   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="ville" required="required" class="form-control col-md-7 col-xs-12"></div></div><div class="form-group col-xs-6"><label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Ville du Greffe   <span class="required">*</span></label><div class="col-md-8 col-sm-8 col-xs-12"><input type="text"  name="villegreffe" required="required" class="form-control col-md-7 col-xs-12"></div></div>');
+					}
+				
+				
+			})
+			.change();
+</script>
+</body>
+</html>{# empty Twig template #}
+{% endblock %}

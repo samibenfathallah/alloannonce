@@ -1,0 +1,392 @@
+{% include "@Backoffice/Default/menu.html.twig" %}
+{% block contenu %}
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Gestion des annonces
+                <a href="{{ path('liste_annonces') }}" class="btn btn-danger">Retourner à la liste des annonces</a>
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Gestion des annonces</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <h1>Annonce légale clôture</h1>
+            <div class="row">
+
+                <div class="box">
+                    <div class="box-header">
+                        <img style="width:90%" class="box-title" src='{{ asset ('bundles/backoffice/images/2etape.png')}}'/>   
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+
+                        <div class="box-body">
+
+                            <div class="modal-body">
+                                <form id="add-form"  method='POST' action='{{path('edit_valide_annonce')}}' data-parsley-validate class="form-horizontal form-label-left">
+
+                                    <div class="form-group col-xs-12" style="background:#009ee0;color:#fff;padding-bottom:5px" >
+
+                                        <label class="control-label  col-xs-12" style="font-size:20px;text-align: left" for="modal-name"> Siège social   </label>
+
+                                    </div>
+
+                                    <div class="form-group col-xs-6">
+
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Adresse  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="adresse" value="{{ annonce.adresse }}" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="hidden"  name="idannonce" value="{{ annonce.id }}" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Complément d'adresse
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="com_adr" value="{{ annonce.complementAdresse }}"  class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Code Postal  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="code" required="required" value="{{ annonce.codePostal }}" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Ville  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="ville" required="required" value="{{ annonce.ville }}" class="form-control col-md-7 col-xs-12"> 
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Ville du Greffe  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="greffe" required="required" value="{{ annonce.villeDuGreffe }}" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-xs-12" style="background:#009ee0;color:#fff;padding-bottom:5px" >
+
+                                        <label class="control-label col-xs-12" style="font-size:20px;text-align: left" for="modal-name"> Informations de la société  </label>
+
+                                    </div>
+
+                                    <div class="form-group col-xs-6">
+
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Nom de la société  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="denomination" required="required" value="{{ annonce.societe }}" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Forme juridique de la société <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+
+                                            <select name="forme" class="form-control col-md-7 col-xs-12">
+                                                <option value="{{ annonce.formeJurique }}">{{ annonce.formeJurique }}</option>
+                                                <option value="">- Sélectionner une valeur -</option>
+                                                <option value="SARL unipersonnelle">SARL unipersonnelle</option>
+                                                <option value="SARL unipersonnelle à capital variable">SARL unipersonnelle à capital variable</option>
+                                                <option value="SARL">SARL</option>
+                                                <option value="SARL à capital variable">SARL à capital variable</option>
+                                                <option value="SELARL">SELARL</option>
+                                                <option value="SELARL à capital variable">SELARL à capital variable</option>
+                                                <option value="SAS">SAS</option>
+                                                <option value="SAS à capital variable">SAS à capital variable</option>
+                                                <option value="SASU">SASU</option>
+                                                <option value="SASU à capital variable">SASU à capital variable</option>
+                                                <option value="SA">SA</option>
+                                                <option value="SCI">SCI</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Capital  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="capital" value="{{ annonce.capital }}" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> N° RCS  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="rcs" required="required" value="{{ annonce.nrcs }}" class="form-control col-md-7 col-xs-12"> 
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group col-xs-12" style="background:#009ee0;color:#fff;padding-bottom:5px" >
+
+                                        <label class="control-label col-xs-12" style="font-size:20px;text-align: left" for="modal-name"> Assemblée de clôture  </label>
+
+                                    </div>
+
+                                    <div class="form-group col-xs-6">
+
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Type d'assemblée  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <select name="type_ass" class="form-control col-md-7 col-xs-12">
+                                                <option value="{{ annonce.typeAssemblee }}">{{ annonce.typeAssemblee }}</option>
+                                                <option value="AGO">AGO</option>
+                                                <option value="AGE">AGE</option>
+                                                <option value="AGM">AGM</option>
+                                                <option value="Gérant">Gérant</option>
+                                                <option value="Président">Président</option>
+                                                <option value="Associé unique">Associé unique</option>
+                                                <option value="Conseil d'administration">Conseil d'administration</option>
+                                                <option value="Autre">Autre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Autre type d'assemblée 
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text"  name="autre_type" value="{{ annonce.typeAssemble2 }}" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Date de l'assemblée  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="date"  name="dt_assemblee" value="{{ annonce.dateAssemblee }}" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-xs-6">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="modal-name"> Date d'effet  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="date"  name="dt_effet" value="{{ annonce.dateEffet }}" required="required" class="form-control col-md-7 col-xs-12"> 
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <!-- <div class="ln_solid"></div>-->
+
+                                    <br style="clear: both">
+                                    <div class="modal-footer col-xs-12">
+
+                                        <button type="submit" class="btn btn-primary btn-add"><i class="fa fa-edit"></i>   Enregistrez et visualisez votre annonce  </button>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <!--div id="left-s">
+        <h1>Annonce légale clôture</h1>
+        <br style="clear: both">
+        <!--form id="add-form"  method='POST' action='{{path('add_annonce_cloture')}}' data-parsley-validate class="form-horizontal form-label-left">
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-siege.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Siège social</h2></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Adresse *<br><input class="input" type="text" name="adresse" id="adresse" value=""></div>
+                <div class="form-r"><span class="texte-gris">Complément d'adresse</span><br><input class="input" type="text" name="com_adr" value=""><span class="help">Ex. : bâtiment, boite postale, étage, etc.</span></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Code postal *<br><input class="input" type="text" name="code" id="code" onkeyup="verifNum(this)" value=""><span class="help">Tapez votre code postal et sélectionnez une ville dans la liste</span></div>
+                <div class="form-r">Ville *<br><input class="input" type="text" name="ville" id="ville" onkeyup="this.value=this.value.toUpperCase();" value=""></div>
+        </div>
+        <div class="form-z">Ville du Greffe *<br><input class="input" type="text" name="greffe" id="greffe"  value=""></div>
+        <input class="input" type="hidden" name="dpt" id="dpt" value="">
+        <input class="input" type="hidden" name="ville_greffe" id="ville_greffe" value="">
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-siege.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Informations de la société</h2></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Nom de la société *<br><input class="input" type="text" name="denomination" id="denomination" value=""></div>
+                <div class="form-r">Forme juridique de la société *<br>
+                        <div class="select"><select name="forme" id="forme" onchange="choixsoc();">
+                        <option value="">- Sélectionner une valeur -</option>
+                        <option value="1">SARL unipersonnelle</option>
+                        <option value="2">SARL unipersonnelle à capital variable</option>
+                        <option value="3">SARL</option>
+                        <option value="4">SARL à capital variable</option>
+                        <option value="5">SELARL</option>
+                        <option value="6">SELARL à capital variable</option>
+                        <option value="7">SAS</option>
+                        <option value="8">SAS à capital variable</option>
+                        <option value="9">SASU</option>
+                        <option value="10">SASU à capital variable</option>
+                        <option value="11">SA</option>
+                        <option value="12">SCI</option>
+                        </select></div>
+                </div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Capital *<br><input class="input" type="text" name="capital" id="capital" value=""><span class="help">Tel que mentionné dans les statuts avec les centimes s'il y a lieu.</span></div>
+                <div class="form-r">N° RCS *<br><input class="input" type="text" name="rcs" id="rcs" value=""><span class="help">Le n° de RCS est formé des 9 premiers chiffres du n° de SIREN.</span></div>
+        </div>
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-siege.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Assemblée de clôture</h2></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Type d'assemblée *<br>
+                        <div class="select"><select name="type_ass" id="type_ass" onchange="choixass();">
+                        <option value="">- Sélectionner une valeur -</option>
+                        <option value="1">AGO</option>
+                        <option value="2">AGE</option>
+                        <option value="3">AGM</option>
+                        <option value="4">Gérant</option>
+                        <option value="5">Président</option>
+                        <option value="6">Associé unique</option>
+                        <option value="7">Conseil d'administration</option>
+                        <option value="8">Autre</option>
+                        </select></div>
+                </div>
+                <div class="form-r">Autre type d'assemblée<br><input class="input" type="text" name="autre_type" id="autre_type" value=""><span class="help">Obligatoire si Autre est sélectionné.</span></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Date de l'assemblée *<br><input class="input hasDatepicker" type="text" name="dt_assemblee" id="datepicker" value=""></div>
+                <div class="form-r">Date d'effet *<br><input class="input hasDatepicker" type="text" name="dt_effet" id="datepicker2" value=""><span class="help">Impérativement le même jour ou avant</span></div>
+        </div>
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-gerant.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Liquidateur</h2></div>
+        </div>
+        <div id="liquidateur1">
+                <h2>Liquidateur 1</h2>
+                <br style="clear: both">
+                <div class="form-z">Personne physique / Société *<br>
+                        <div class="select">
+                        <select name="type_pers1" id="type_pers1" onchange="choixpers1();">
+                                <option value="">- Sélectionner une valeur -</option>
+                                <option value="1">Personne physique</option>
+                                <option value="2">Société</option>
+                        </select>
+                        </div>
+                </div>
+                <div style="display:none" id="phy1">
+                        <div class="form-z">Civilité *<br>
+                                <div class="select">
+                                        <select name="civilite1" id="civilite1">
+                                                <option value="">- Sélectionner une valeur -</option>
+                                                <option value="1">M.</option>
+                                                <option value="2">Mme</option>
+                                                <option value="3">Mlle</option>
+                                                <option value="4">Doct.</option>
+                                                <option value="5">Me.</option>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Prénom *<br><input class="input" type="text" name="prenom1" id="prenom1" value=""></div>
+                                <div class="form-r">Nom *<br><input class="input" type="text" name="nom1" id="nom1" value=""></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Adresse *<br><input class="input" type="text" name="p_adresse1" id="p_adresse1" value=""></div>
+                                <div class="form-r"><span class="texte-gris">Complément d’adresse</span><br><input class="input" type="text" name="p_com_adr1" id="p_com_adr1" value=""><span class="help">Ex. : bâtiment, boite postale, étage, etc.</span></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Code postal *<br><input class="input" type="text" name="p_code1" id="p_code1" onkeyup="verifNum(this)" value=""><span class="help">Tapez votre code postal et sélectionnez une ville dans la liste</span></div>
+                                <div class="form-r">Ville *<br><input class="input" type="text" name="p_ville1" id="p_ville1" onkeyup="this.value=this.value.toUpperCase();" value=""></div>
+                        </div>
+                        <div class="form-z"><input style="margin: 14px 0 10px" type="checkbox" name="etranger1"> <span class="texte-gris">Résidant à l’étranger</span></div>
+                </div>
+                <div style="display:none" id="mor1">
+                        <div class="form-z">
+                                <div class="form-l">Nom de la société *<br><input class="input" type="text" name="denomination1" id="denomination1" value=""><span class="help">Telle que mentionnée sur les statuts.</span></div>
+                                <div class="form-r">Forme juridique de la société *<br>
+                                <div class="select">
+                                        <select name="forme1" id="forme1">
+                                                <option value="">- Sélectionner une valeur -</option>
+                                                <option value="1">SARL unipersonnelle</option>
+                                                <option value="2">SARL unipersonnelle à capital variable</option>
+                                                <option value="3">SARL</option><option value="4">SARL à capital variable</option>
+                                                <option value="5">SELARL</option>
+                                                <option value="6">SELARL à capital variable</option>
+                                                <option value="7">SAS</option>
+                                                <option value="8">SAS à capital variable</option>
+                                                <option value="9">SASU</option>
+                                                <option value="10">SASU à capital variable</option>
+                                                <option value="11">SA</option>
+                                                <option value="12">SCI</option>
+                                        </select>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Capital *<input class="input" type="text" name="capital1" id="capital1" value=""><span class="help">Tel que mentionné dans les statuts avec les centimes s'il y a lieu.</span></div>
+                                <div class="form-r">N° RCS *<br><input class="input" type="text" name="rcs1" id="rcs1" value=""><span class="help">Le n° de RCS est formé des 9 premiers chiffres du n° de SIREN.</span></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Nom et prénom du représentant légal *<br><input class="input" type="text" name="rep1" id="rep1" value=""></div>
+                                <div class="form-r">Adresse *<br><input class="input" type="text" name="m_adresse1" id="m_adresse1" value=""></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l"><span class="texte-gris">Complément d’adresse</span><br><input class="input" type="text" name="m_com_adr1" id="m_com_adr1" value=""><span class="help">Ex. : bâtiment, boite postale, étage, etc.</span></div>
+                                <div class="form-r">Code postal *<br><input class="input" type="text" name="m_code1" id="m_code1" onkeyup="verifNum(this)" value=""><span class="help">Tapez votre code postal et sélectionnez une ville dans la liste</span></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Ville *<br><input class="input" type="text" name="m_ville1" id="m_ville1" onkeyup="this.value=this.value.toUpperCase();" value=""></div>
+                                <div class="form-r">Ville du Greffe *<br><input class="input" type="text" name="greffe1" id="greffe1" disabled="disabled" value=""></div>
+                                <input class="input" type="hidden" name="ville_greffe1" id="ville_greffe1" value="">
+                        </div>
+                </div>
+        </div>
+        <div id="liquidateurs"></div>
+        <p class="btn-droite"><button type="button" class="ajo_liquidateur bouton-gris" id="ajo-1">Ajouter un autre liquidateur</button></p>
+        <input type="hidden" name="listid" id="listid">
+        
+        
+        <div id="msg"></div>
+        <p class="btn-droite"><input class="bouton-rouge" type="submit" name="valider" value="Enregistrez et visualisez votre annonce"></p>
+        </form>
+        </div-->
+
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+
+
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+</div>
+
+<!-- ./wrapper -->
+{% endblock %}
+{% include "@Backoffice/Default/footer.html.twig" %}

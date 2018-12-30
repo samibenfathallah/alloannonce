@@ -1,0 +1,46 @@
+BackofficeBundle\Entity\Societe:
+    type: entity
+    table: null
+    repositoryClass: BackofficeBundle\Repository\SocieteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        formJuridique:
+            type: string
+            length: 255
+            column: form_juridique
+        capitale:
+            type: string
+            length: 255
+        nrcs:
+            type: string
+            length: 255
+        represenatant:
+            type: string
+            length: 255
+        adresse:
+            type: string
+            length: 255
+        cmplAdresse:
+            type: string
+            length: 255
+            column: cmpl_adresse
+        codePostale:
+            type: string
+            length: 255
+            column: code_postale
+        ville:
+            type: string
+            length: 255
+        villeGreffe:
+            type: string
+            length: 255
+            column: ville_greffe
+    lifecycleCallbacks: {  }

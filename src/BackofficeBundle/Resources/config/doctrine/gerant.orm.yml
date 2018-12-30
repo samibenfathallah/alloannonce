@@ -1,0 +1,39 @@
+BackofficeBundle\Entity\gerant:
+    type: entity
+    table: null
+    repositoryClass: BackofficeBundle\Repository\gerantRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        civilite:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        nom:
+            type: string
+            length: 255
+        adresse:
+            type: string
+            length: 255
+        cmplAdresse:
+            type: string
+            length: 255
+            column: cmpl_adresse
+        codePostale:
+            type: string
+            length: 255
+            column: code_postale
+        ville:
+            type: string
+            length: 255
+        residenceEtranger:
+            type: string
+            length: 255
+            column: residence_etranger
+    lifecycleCallbacks: {  }

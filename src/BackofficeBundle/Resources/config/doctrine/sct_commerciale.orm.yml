@@ -1,0 +1,55 @@
+BackofficeBundle\Entity\sct_commerciale:
+    type: entity
+    table: null
+    repositoryClass: BackofficeBundle\Repository\sct_commercialeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        adresse:
+            type: string
+            length: 255
+        gerant:
+            type: integer
+        typegerant:
+            type: integer
+        capital:
+            type: string
+            length: 255
+        cmplAdresse:
+            type: text
+            column: cmpl_adresse
+        codePostale:
+            type: text
+            column: code_postale
+        ville:
+            type: text
+        villeGreffe:
+            type: text
+            column: ville_greffe
+        nomSct:
+            type: text
+            column: nom_sct
+        formJuridique:
+            type: text
+            column: form_juridique
+        dateSignatureState:
+            type: text
+            column: date_signature_state
+        sigle:
+            type: text
+        nomCommercial:
+            type: text
+            column: nom_commercial
+        enseigne:
+            type: text
+        duree:
+            type: string
+            length: 255
+        activitePrincipale:
+            type: text
+            column: activite_principale
+    lifecycleCallbacks: {  }

@@ -1,0 +1,84 @@
+{% include "@Backoffice/Default/menu.html.twig" %}
+{% block contenu %}
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Gestion des Infos contact 
+                <a class="btn btn-sm btn-primary" href='{{path('visualiser_contact')}}'>
+                    Retour  
+                </a>
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Modifier Info Contact</li>
+            </ol>
+        </section>
+
+
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title"></h3>
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+                        <div class="modal-body">
+                            <form id="add-form"  method='POST' action='{{ path("edit_valide_contact")}}' data-parsley-validate class="form-horizontal form-label-left">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Email  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="email"  name="email" required="required" value="{{ info[0].email }}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Tél  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text"  name="tel" required="required" value="{{ info[0].tel }}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Adresse  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text"  name="adresse" required="required" value="{{ info[0].adresse }}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+                                
+                                
+
+                                <div class="modal-footer">
+
+                                    <button type="submit" class="btn btn-success btn-add"><i class="fa fa-plus"></i>   Modifier  </button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+
+
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row (main row) -->
+
+        </section>
+
+    </div>
+{% endblock %}
+
+{% include "@Backoffice/Default/footer.html.twig" %}

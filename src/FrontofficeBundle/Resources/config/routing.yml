@@ -1,0 +1,3 @@
+frentoffice_homepage:
+    path: /
+    defaults: { _controller: FrontofficeBundle:Home:index }

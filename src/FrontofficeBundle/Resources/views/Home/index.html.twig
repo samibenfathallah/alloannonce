@@ -1,0 +1,921 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>ALLO Annonce Légale</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="{{ asset ('bundles/frontoffice/images/logoicon.png')}}">
+
+        <!--Google Font link-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/slick.css')}}"> 
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/slick-theme.css')}}">
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/animate.css')}}">
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/iconfont.css')}}">
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/magnific-popup.css')}}">
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/bootsnav.css')}}">
+
+
+
+
+        <!--For Plugins external css-->
+
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/plugins.css')}}">
+
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/style.css')}}">
+        <!--Theme Responsive css-->
+
+        <link rel="stylesheet" href="{{ asset ('bundles/frontoffice/css/responsive.css')}}">
+        <script src="{{ asset ('bundles/frontoffice/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
+
+
+        <!-- Preloader -->
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                </div>
+            </div>
+        </div><!--End off Preloader -->
+
+
+        <div class="culmn">
+            <!--Home page style-->
+
+
+            <nav class="navbar navbar-default bootsnav navbar-fixed no-background white">
+
+                <!-- Start Top Search -->
+                <div class="top-search">
+                    <div class="container">
+                        <div class="input-group">
+                            <form class="form-inline" method="post" action="{{ path("fos_user_security_check")}}">
+                                
+                                <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                <div class="form-group mb-2">
+                                    <label for="staticEmail2" class="sr-only">Login</label>
+                                    <input type="text"  class="form-control-plaintext" name="_username" placeholder="Username">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="inputPassword2" class="sr-only">Password</label>
+                                    <input type="password" class="form-control-plaintext"  name="_password" placeholder="Password">
+                                </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                <input type="submit" value="Valider">
+                                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                            </form>
+                            <!--form method="POST" action="#" class="form-inline">
+                                <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                <input type="text"  name="login" class="form-control" placeholder="E-mail">
+                                <input type="password"  name="pwd" class="form-control" placeholder="Mot de passe">
+                                <input type="submit"  value="Valider">
+                                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                            </form-->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Top Search -->
+
+
+                <div class="container"> 
+                    <div class="attr-nav">
+                        <ul>
+                            <li class="search"><a href="#"><i class="fa fa-user"></i></a></li>
+                        </ul>
+                    </div> 
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="#brand" style="margin-top:-12px">
+                            <img id='logomenu' src="{{ asset ('bundles/frontoffice/images/logo_head.png')}}" style="width:200px" class="logo" alt="Mon annonce L'égale">
+                            <!--<img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">-->
+                            
+                        </a>
+
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- navbar menu -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#home">Notre Journal</a></li>                    
+                            <li><a href="#features">Annonce légale solidaire</a></li>
+                            <li><a href="#service">Comment publier</a></li>
+                            <li><a href="#portfolio">Nos Engagements</a></li>
+                            <li><a href="#test">Nos Tarifs</a></li>
+                            <!--li><a href="#test">Offre Pro</a></li-->
+                            <li><a href="#contact">Contact</a></li>
+                            <!--li><a href="{{path('backoffice_homepage')}}">Connexion</a></li-->
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div> 
+
+            </nav>
+
+            <!--Home Sections-->
+
+            <section id="home" class="home bg-black fix" style="background-size:cover">
+                
+                <div class="container">
+                    <div class="row" style="background:#BCBCBC">
+                        <div class="main_home text-center">
+                            <div class="col-md-12">
+                                <div class="hello">
+                                    <div class="slid_item">
+                                        <div class="home_text ">
+                                            
+                                            <h3 class="text-white text-uppercase">{{ infos[0].bloc1|nl2br }}</h3>
+                                        </div>
+                                    </div><!-- End off slid item -->
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--a class="mouse-scroll" href="#about"> 
+                            <span class="mouse">
+                                <span class="mouse-movement"></span>
+                            </span>
+                            <!--span class="mouse-message fadeIn">Explore</span> <br /-->
+                            <!--<i class="fa fa-angle-down m-top-10 fadeIn mouse-message"></i>--> 
+                        <!--/a-->
+
+                    </div><!--End off row-->
+                </div><!--End off container -->
+                <div class="overlay"></div>
+            </section> <!--End off Home Sections-->
+
+
+
+            <!--About Section-->
+            <section id="about" class="about bg-yellow roomy-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="main_about">
+                                <h1 class="text-black text-center">{{ infos[0].titrebloc2|nl2br }} </h1>
+                                <h2 class="text-white"></h2>
+                                <h3 class="text-black">{{ infos[0].bloc2|nl2br }}</h3>
+
+                                <!--a href="" class="btn btn-primary m-top-100">Get In Touch</a-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!--Featured Section-->
+            <section id="features" class="features bg-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_features fix roomy-70">
+
+                            <div class="col-md-5">
+                                <div class="features_item">
+                                    <div class="head_title">
+                                        <h2 class="text-uppercase"> <strong>{{ infos[0].tbloc3|nl2br }} </strong></h2>
+                                    </div>
+                                    <div class="featured_content">
+                                        {{ infos[0].bloc3|nl2br }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-md-offset-1 sm-m-top-50">
+                                <div class="features_item2_area">
+                                    <img src="{{ asset ('bundles/frontoffice/images/solidaire.jpg')}}" alt="" class="" />
+                                    <p>
+                                        </br>
+                                        Journal officiel et habilité à publier une annonce légale pour un tiers, Allo Annonce s'engage auprès de ses vendeurs et met tout en œuvre pour continuer à paraitre hebdomadairement afin de continuer son action solidaire. Il met tout en œuvre depuis 1994 pour leur procurer un travail quotidien !
+
+                                    </p>
+                                    <!--div class="features_item2 text-center">
+                                        <div class="divider_horizontal"></div>
+                                        <div class="divider_vertical"></div>
+                                        <div class="col-xs-6">
+                                            <div class="features_item_text">
+                                                <img src="{{ asset ('bundles/frontoffice/images/featured1.jpg')}}" alt="" class="img-circle" />
+                                                <p class="m-top-20">Trending Design</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="features_item_text">
+                                                <img src="{{ asset ('bundles/frontoffice/images/featured2.jpg')}}" alt="" class="img-circle" />
+                                                <p class="m-top-20">Easy to Customize</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="features_item_text m-top-50">
+                                                <img src="{{ asset ('bundles/frontoffice/images/featured3.jpg')}}" alt="" class="img-circle" />
+                                                <p class="m-top-20">Responsive Design</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="features_item_text m-top-50">
+                                                <img src="{{ asset ('bundles/frontoffice/images/featured4.jpg')}}" alt="" class="img-circle" />
+                                                <p class="m-top-20">Free Google Font</p>
+                                            </div>
+                                        </div>
+
+                                    </div-->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+
+            <!--Business Section-->
+            <section id="service" class="service bg-grey roomy-70">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_service">
+
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="service_item sm-m-top-50">
+                                    <div class="head_title">
+                                        <h2 class="text-uppercase"> <strong>{{ infos[0].tbloc4|nl2br }}</strong></h2>
+                                    </div>
+                                    <div class="service_content">
+                                       {{ infos[0].bloc4|nl2br }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service_slid">
+                                    <div class="slid_shap bg-yellow"></div>
+                                    <div class="service_slid_item text-center">
+                                        <div class="service_slid_text">
+                                            <span class="icon icon icon-tools text-black"></span>
+                                            <h5 class="text-black m-top-20">Publier une annonce légale en ligne</h5>
+                                        </div>
+                                        <div class="service_slid_text">
+                                            <span class="icon icon text-black">1</span>
+                                            <h5 class="text-black m-top-20">Se rendre sur la page annonces légales et choisir son cas de figure.</h5>
+                                        </div>
+                                        <div class="service_slid_text">
+                                            <span class="icon icon text-black">2</span>
+                                            <h5 class="text-black m-top-20">Rédiger son annonce et se connecter ou ouvrir un nouveau compte client</h5>
+                                        </div>
+                                        <div class="service_slid_text">
+                                            <span class="icon icon text-black">3</span>
+                                            <h5 class="text-black m-top-20">Visualiser l'annonce et son tarif de publication</h5>
+                                        </div>
+                                        <div class="service_slid_text">
+                                            <span class="icon icon text-black">4</span>
+                                            <h5 class="text-black m-top-20">Valider l'annonce et procéder au paiement</h5>
+                                        </div>
+                                        <div class="service_slid_text">
+                                            <span class="icon icon text-black">5</span>
+                                            <h5 class="text-black m-top-20">Recevoir son attestation de publication et sa date de parution</h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="{{ path("fos_user_security_login") }}" class="btn btn-default m-top-40" style="background:#FDE37A">Publiez votre annonce</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- End off Business section -->
+
+
+
+
+            <!--Choose section-->
+            <section id="choose" class="choose bg-grey roomy-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_choose">
+
+
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="choose_content sm-m-top-40">
+                                    <div class="head_title">
+                                        <h2 class="text-uppercase">Nos <strong> différents moyens pour publier une annonce légale</strong></h2>
+                                    </div>
+                                    <div class="choose_item_text fix">
+                                        <h6><i class="fa fa-check-square-o"></i> Publier une annonce légale au journal</h6>
+                                        <p>1-Nous vous accueillons dans nos locaux du lundi au vendredi de 9h à 16h. </p>
+                                        <p>2-Nous vous apportons notre aide pour rédiger, avec vous, votre annonce. </p>
+                                        <p>3-Vous effectuez votre paiement par CB, chèque ou espèce. </p>
+                                        <p>4-Recevoir son attestation de publication et sa . </p>
+                                    </div>
+                                    <div class="choose_item_text fix m-top-20">
+                                        <h6><i class="fa fa-check-square-o"></i> Publier une annonce légale par téléphone</h6>
+                                        <p>1-Nous répondons à vos appels du lundi au vendredi de 9h à 16h. </p>
+                                        <p>2-Nous vous apportons notre expertise pour la validation de votre annonce. </p>
+                                        <p>3-Vous procédez au paiement par CB ou chèque. </p>
+                                        <p>4-Recevoir son attestation de publication et sa date de parution. </p>
+                                        <p><a href="{{ path("fos_user_security_login") }}" class="btn btn-default" style="background:#FDE37A">Rédigez votre annonce</a></p>
+                                    </div>
+                                   
+                                </div>
+                            </div><!-- End off col-md-6 -->
+                            <div class="col-md-6">
+                                <div>
+                                    <!--div class="choose_slide">
+                                        <div class="choose_item">
+                                            <img src="{{ asset ('bundles/frontoffice/images/choose-img1.png')}}" alt="" />
+                                        </div>
+                                        <div class="choose_item">
+                                            <img src="{{ asset ('bundles/frontoffice/images/phone.png')}}" alt="" />
+                                        </div>
+                                        <div class="choose_item">
+                                            <img src="{{ asset ('bundles/frontoffice/images/email.png')}}" alt="" />
+                                        </div>
+                                        <div class="choose_item">
+                                            <img src="{{ asset ('bundles/frontoffice/images/postal.png')}}" alt="" />
+                                        </div>
+                                    </div-->
+
+                                    <div class="choose_item_text fix m-top-160">
+                                        <h6><i class="fa fa-check-square-o"></i> Publier une annonce légale au journal</h6>
+                                        <p>1-Nous vous accueillons dans nos locaux du lundi au vendredi de 9h à 16h. </p>
+                                        <p>2-Nous vous apportons notre aide pour rédiger, avec vous, votre annonce. </p>
+                                        <p>3-Vous effectuez votre paiement par CB, chèque ou espèce. </p>
+                                        <p>4-Recevoir son attestation de publication et sa . </p>
+                                    </div>
+                                    <div class="choose_item_text fix m-top-20">
+                                        <h6><i class="fa fa-check-square-o"></i> Publier une annonce légale par téléphone</h6>
+                                        <p>1-Nous répondons à vos appels du lundi au vendredi de 9h à 16h. </p>
+                                        <p>2-Nous vous apportons notre expertise pour la validation de votre annonce. </p>
+                                        <p>3-Vous procédez au paiement par CB ou chèque. </p>
+                                        <p>4-Recevoir son attestation de publication et sa date de parution. </p>
+                                    </div>
+
+                                </div>
+                            </div><!-- End off col-md-6 -->
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off choose section -->
+
+
+            <!--Portfolio Section-->
+
+
+
+
+
+            <!--Portfolio section-->
+            <section id="portfolio" class="test bg-grey roomy-60 fix">
+                <div class="container">
+                    <div class="row">                        
+                        <div class="main_test fix">
+
+
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">Allo Annonce <strong> s'engage aux côtés de ses clients
+                                            </strong></h2>
+                                    </div>
+                                    <div class="item_img">
+                                        <img class="img-circle" src="{{ asset ('bundles/frontoffice/images/aide.jpg')}}" alt="" />
+                                        <i class="fa fa-quote-left"></i>
+                                    </div>
+
+                                    <div class="item_text">
+                                        <p>Chaque jour Allo Annonce s'engage auprès de ses clients ! Le journal propose à tous les utilisateurs du service annonce légale, un service solidaire pour des publications légales économiques. Il met tout en œuvre pour offrir une plateforme de publication efficace, performante, rapide, transparente et simple d’utilisation.</p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">Un service d'annonce légale qui s'engage au quotidien
+                                        </h2>
+                                    </div>
+                                    <div class="item_img">
+                                        <img class="img-circle" src="{{ asset ('bundles/frontoffice/images/engage1.jpg')}}" alt="" />
+                                        <i class="fa fa-quote-left"></i>
+                                    </div>
+
+                                    <div class="item_text">
+                                        <p><b>L'action et le quotidien du service annonce légale reposent sur cinq engagements clefs :</b>
+
+                                            <br/>1- Satisfaction de nos utilisateurs et clients,
+                                            <br/>2- Appliquer une tarification solidaire au prix le plus bas,
+                                            <br/>3- Offrir une assistance gratuite pour une rédaction économique,
+                                            <br/>4- Pratiquer des frais et des marges réduits au moindre coût,
+                                            <br/>5- Proposer un service de publication simple, rapide, fiable.</p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- End off test section -->
+
+            <!--Portfolio section-->
+            <section id="test" class="test bg-grey roomy-60 fix">
+                <div class="container">
+                    <div class="row">                        
+                        <div class="main_test fix">
+
+                            <div class="col-md-12 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">Tarif <strong> d'une annonce légale
+                                            </strong></h2>
+                                    </div>
+                                    <div class="item_img">
+                                        <img class="img-circle" src="{{ asset ('bundles/frontoffice/images/euro.png')}}" alt="" />
+                                        <i class="fa fa-quote-left"></i>
+                                    </div>
+
+                                    <div class="item_text">
+                                        <p>
+                                            Le tarif de publication d'une annonce légale s'entend HT. Il est fixé pour l'année civile dans chaque département. C'est un prix à la ligne qui est réglementé par l’État et contrôlé par la préfecture de circonscription, un prix qui est incompressible !
+                                            </br></br>
+                                            Le coût d'une annonce légale est calculé en multipliant le prix à la ligne du département de parution, par le nombre de lignes qui compose le texte de l'annonce légale. On ajoute ensuite la TVA à 20% et les frais de publication du journal, frais qui varient entre les différents journaux habilités.
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Quel est le tarif total pour la publication d'une annonce légale ?
+                                        </h2>
+                                    </div>
+                                    <div class="item_img">
+                                        <img class="img-circle" src="{{ asset ('bundles/frontoffice/images/euro.png')}}" alt="" />
+                                        <i class="fa fa-quote-left"></i>
+                                    </div>
+
+                                    <div class="item_text">
+                                        <p>Le tarif d'une annonce légale est un tarif réglementé et non forfaitaire. On ne peut pas connaître le prix d'une annonce légale avant de l'avoir rédigé. Pour connaître le tarif total d'une publication légale, vous pouvez obtenir sans engagement un devis de publication d'annonce légale dans votre département. Un devis qui vous propose un tarif total de publication immédiatement au prix le plus bas ! Choisissez votre modèle d'annonce, rédigez les infos et visualisez le prix de publication."
+                                            </br></br>
+                                            Allo Annonce poursuit une action sociale avant d'être commerciale, le journal propose sans nuls doutes les annonces légales les moins chères du marché, c'est simple comparez nos tarifs !</p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Prix d'une annonce légale par département (Tarifs 2018)
+                                        </h2>
+                                    </div>
+
+
+                                    <div>
+                                        <p>Découvrez le prix d'une annonce légale dans votre département en 2018 ! Retrouvez la liste des prix à la ligne pour une annonce légale et à jour de l'année civile pour chaque département ! Rédigez en ligne une annonce légale. Obtenez un prix total de publication, sans engagement, au plus bas !
+                                            </br></br>
+                                            Le prix d'une publication légale est fixé à la ligne par le Ministère de la Culture et de la Communication. Le prix d'une ligne est identique pour tout un même département. Il existe moins de différence de prix entre chaque département que par le passé et les prix de publication s'harmonisent, pourtant il reste quelques écarts.</p>
+                                    </div>
+                                    </br>
+                                    </br>
+                                    </br>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Alsace
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>Bas-Rhin (67) : 4.16 €</br>
+
+                                            Haut-Rhin (68) : 4.16 €   
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Aquitaine
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>Dordogne (24) : 4.16 €</br>
+
+                                            Gironde (33) : 4.16 €</br>
+                                            Landes (40) : 4.16 €</br>
+                                            Lot-et-Garonne (47) : 4.16 €</br>
+                                            Pyrénées-Atlantiques (64) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Auvergne
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Bourgogne
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Bretagne
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Centre
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Champagne-Ardenne
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Corse
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Franche-Comté
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Ile-de-France
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Languedoc-Roussillon
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 sm-m-top-40">
+                                <div class="test_item1 fix ">
+                                    <div class="head_title fix">
+                                        <h2 class="text-uppercase">
+                                            Région Limousin
+                                        </h2>
+                                    </div>
+
+
+                                    <div class="item_text">
+                                        <p>
+                                            Allier (03) : 4.16 €</br>
+                                            Cantal (15) : 4.16 €</br>
+                                            Haute-Loire (43) : 4.16 €</br>
+                                            Puy-de-Dôme (63) : 4.16 €  
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- End off test section -->
+
+
+
+            <footer id="contact" class="footer action-lage bg-black p-top-80">
+                <!--<div class="action-lage"></div>-->
+                <div class="container">
+                    <div class="row">
+                        <div class="widget_area">
+                            <div class="col-md-3">
+                                <div class="widget_item widget_about">
+                                    <h5 class="text-white">Qui Sommes Nous</h5>
+                                    <p class="m-top-30">Mon annonce L'égale est un partenaire pour la publication juridique d'une annonce légale dans les meilleures conditions, y compris tarifaires !</p>
+                                    <div class="widget_ab_item m-top-30">
+                                        <div class="item_icon"><i class="fa fa-location-arrow"></i></div>
+                                        <div class="widget_ab_item_text">
+                                            <h6 class="text-white">Location</h6>
+                                            <p>
+                                                {{ infos[0].adresse }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="widget_ab_item m-top-30">
+                                        <div class="item_icon"><i class="fa fa-phone"></i></div>
+                                        <div class="widget_ab_item_text">
+                                            <h6 class="text-white">Phone :</h6>
+                                            <p>{{ infos[0].tel }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="widget_ab_item m-top-30">
+                                        <div class="item_icon"><i class="fa fa-envelope-o"></i></div>
+                                        <div class="widget_ab_item_text">
+                                            <h6 class="text-white">Email Address :</h6>
+                                            <p>{{ infos[0].email }}</p>
+                                        </div>
+                                    </div>
+                                </div><!-- End off widget item -->
+                            </div><!-- End off col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="widget_item widget_latest sm-m-top-50">
+                                    <h5 class="text-white">Mon Annonce Légale S'engage aux cotés de ses clients:</h5>
+                                    <div class="widget_latst_item m-top-30">
+                                        <div class="item_icon"><img src="{{ asset ('bundles/frontoffice/images/aide.jpg')}}" alt="" /></div>
+                                        <div class="widget_latst_item_text">
+                                            <p> Satisfaction de nos utilisateurs et clients.</p>
+                                            <!--a href="">21<sup>th</sup> July 2016</a-->
+                                        </div>
+                                    </div>
+                                    </br>
+                                    </br>
+                                    <div class="widget_latst_item m-top-30">
+                                        <div class="item_icon"><img src="{{ asset ('bundles/frontoffice/images/engage1.jpg')}}" alt="" /></div>
+                                        <div class="widget_latst_item_text">
+                                            <p>Offrir une assistance gratuite pour une rédaction économique,</p>
+                                            <!--a href="">21<sup>th</sup> July 2016</a-->
+                                        </div>
+                                    </div>
+                                    </br>
+                                    </br>
+                                    <div class="widget_latst_item m-top-30">
+                                        <div class="item_icon"><img src="{{ asset ('bundles/frontoffice/images/euro.png')}}" alt="" /></div>
+                                        <div class="widget_latst_item_text">
+                                            <p>Appliquer une tarification solidaire au prix le plus bas,</p>
+                                            <!--a href="">21<sup>th</sup> July 2016</a-->
+                                        </div>
+                                    </div>
+                                </div><!-- End off widget item -->
+                            </div><!-- End off col-md-3 -->
+</br>
+                            <div class="col-md-3">
+                                <div class="widget_item widget_service sm-m-top-50">
+                                    <h5 class="text-white">Plan de Site</h5>
+                                    <ul class="m-top-20">
+                                        <li class="m-top-20"> <a href="#home"><i class="fa fa-angle-right"></i> Notre Journal</a></li>
+                                        <li class="m-top-20"> <a href="#features"><i class="fa fa-angle-right"></i> Annonce légale solidaire</a></li>
+                                        <li class="m-top-20"> <a href="#service"><i class="fa fa-angle-right"></i> Comment publier?</a></li>
+                                        <li class="m-top-20"> <a href="#portfolio"><i class="fa fa-angle-right"></i> Nos Engagements</a></li>
+                                        <li class="m-top-20"> <a href="#test"><i class="fa fa-angle-right"></i> Nos Tarifs</a></li>
+                                    </ul>
+
+                                </div><!-- End off widget item -->
+                            </div><!-- End off col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="widget_item widget_newsletter sm-m-top-50">
+                                    <h5 class="text-white">Newsletter</h5>
+                                    <form class="form-inline m-top-30">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Enter you Email">
+                                            <button type="submit" class="btn text-center"><i class="fa fa-arrow-right"></i></button>
+                                        </div>
+
+                                    </form>
+                                    <div class="widget_brand m-top-40">
+                                        <a href="" class="text-uppercase"><img src="{{ asset ('bundles/frontoffice/images/logoblanc.png')}}" class="logo" alt="Mon annonce L'égale"></a>
+                                        <p></br>En 3 étapes simples et rapides, obtenez un devis de parution avec un prix au rabais et publiez en ligne, rapidement et facilement, votre annonce légale !</p>
+                                    </div>
+                                    <ul class="list-inline m-top-20">
+                                        <li>-  <a href=""><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href=""><i class="fa fa-behance"></i></a></li>
+                                        <li><a href=""><i class="fa fa-dribbble"></i></a>  - </li>
+                                    </ul>
+
+                                </div><!-- End off widget item -->
+                            </div><!-- End off col-md-3 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
+                    <div class="col-md-12">
+                        <p class="wow fadeInRight" data-wow-duration="1s">
+                            Powered 
+                            <i class="fa fa-heart"></i>
+                            by 
+                            <a target="_blank" href="#">MA Solution</a> 
+                            2018. All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+        </div>
+
+        <!-- JS includes -->
+
+        <script src="{{ asset ('bundles/frontoffice/js/vendor/jquery-1.11.2.min.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/vendor/bootstrap.min.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/jquery.magnific-popup.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/jquery.easing.1.3.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/slick.min.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/js.isotope.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/jquery.collapse.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/bootsnav.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/plugins.js')}}"></script>
+        <script src="{{ asset ('bundles/frontoffice/js/main.js')}}"></script>
+
+
+
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+
+
+
+
+    </body>
+</html>

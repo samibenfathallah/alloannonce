@@ -1,0 +1,311 @@
+{% include "@Backoffice/Default/menu.html.twig" %}
+{% block contenu %}
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Gestion des annonces
+                <a href="{{ path('liste_annonces') }}" class="btn btn-danger">Retourner à la liste des annonces</a>
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Gestion des annonces</li>
+                <li class="active">Visualisez l'annonces</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <h1>Annonce légale clôture</h1>
+            <div class="row">
+
+                <div class="box">
+                    <div class="box-header">
+                        <img style="width:90%" class="box-title" src='{{ asset ('bundles/backoffice/images/3etape.png')}}'/>   
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+
+                        <div class="box-body">
+
+                            <div class="modal-body">
+                                <form id="add-form"  method='POST' action='{{path('edit_valide_annonce')}}' data-parsley-validate class="form-horizontal form-label-left">
+
+                                    <div class="form-group col-xs-6" >
+                                    <div class="form-group col-xs-12" style="background:#009ee0;color:#fff;padding-bottom:5px" >
+
+                                        <label class="control-label  col-xs-12" style="font-size:20px;text-align: left" for="modal-name"> Visualisation de l'annonce   </label>
+
+                                    </div>
+                                    
+                                    <div class="form-group col-xs-12" style="background:#eee;" >
+                                        <br>
+                                        <div style="text-align: center; font-weight: bold">
+                                            {{ annonce.societe|upper }}
+                                        </div>
+                                        <hr>
+                                        <div style="text-align: center">{{ annonce.formeJurique }} au capital de {{ annonce.capital }} €
+                                        <br>Siège social : 
+                                        <strong>{{ annonce.adresse }}</strong> 
+                                        <strong>{{ annonce.complementAdresse }}</strong> 
+                                        <strong>{{ annonce.codePostal }} {{ annonce.ville }}</strong>
+                                        <br>{{ annonce.nrcs }} RCS de {{ annonce.villeDuGreffe }}
+                                        </div>
+                                        <hr>
+                                        <div>Par AGO du 06/10/2018, il a été approuvé les comptes définitifs de liquidation, 
+                                        donné quitus au liquidateur M. NOM Prenom demeurant Adresse Liquiditeur 9200 92000 NANTERRE, 
+                                        résidant à l'étranger pour sa gestion, 
+                                        l'a déchargé de son mandat et constaté la clôture définitive de la liquidation à compter du 23/10/2018
+                                        </div>
+                                        <div>Radiation du RCS de NANTERRE</div>
+                                        <br>
+                                        <a href="{{path('edit_annonce', { 'id': annonce.id })}}" class="btn btn-primary btn-add"><i class="fa fa-edit"></i> Modifier l'annonce</a>
+                                        
+                                        <a href="{{path('devis_annonce', { 'id': annonce.id })}}" target="_blank" class="btn btn-primary btn-add"><i class="fa fa-euro"></i> Télécharger la devis</a>
+                                        <br><br>
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="form-group col-xs-6" >
+                                    <div class="form-group col-xs-12" style="background:#009ee0;color:#fff;padding-bottom:5px;" >
+
+                                        <label class="control-label  col-xs-12" style="font-size:20px;text-align: left" for="modal-name"> Prix de l'annonce   </label>
+
+                                    </div>
+
+                                    
+                                    
+                                    
+                                    
+                                    <div class="form-group col-xs-12" >
+                                        
+                                      
+                                        Lignage estimatif * : 19 lignes au prix unitaire de 5.50 HT
+                                        <br>
+                                        Prix de l'annonce : 104.50 € HT / 125.40 € TTC (TVA 20%)
+                                        <br>
+                                        Prix du journal : 1.96 € HT / 2.00 € TTC (TVA 2,10%)
+                                        <br>
+                                        Frais postaux : 1.63 €
+                                        <br>
+                                        Montant total de l'annonce : 129.03 € TTC
+                                        <br><br>
+                                        * L'affichage du nombre de lignes de cette annonce peut varier d'un navigateur à l'autre. Seul le prix affiché a valeur contractuelle.
+                                        <br>
+                                       
+                                        
+                                    </div>
+                                   
+                                </div>
+                                    
+
+
+
+
+
+
+                                    <!-- <div class="ln_solid"></div>-->
+
+                                    <br style="clear: both">
+                                    <div class="modal-footer col-xs-12">
+
+                                        <button type="submit" class="btn btn-danger btn-add"><i class="fa fa-euro"></i>   Validez & payez la commande  </button>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <!--div id="left-s">
+        <h1>Annonce légale clôture</h1>
+        <br style="clear: both">
+        <!--form id="add-form"  method='POST' action='{{path('add_annonce_cloture')}}' data-parsley-validate class="form-horizontal form-label-left">
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-siege.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Siège social</h2></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Adresse *<br><input class="input" type="text" name="adresse" id="adresse" value=""></div>
+                <div class="form-r"><span class="texte-gris">Complément d'adresse</span><br><input class="input" type="text" name="com_adr" value=""><span class="help">Ex. : bâtiment, boite postale, étage, etc.</span></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Code postal *<br><input class="input" type="text" name="code" id="code" onkeyup="verifNum(this)" value=""><span class="help">Tapez votre code postal et sélectionnez une ville dans la liste</span></div>
+                <div class="form-r">Ville *<br><input class="input" type="text" name="ville" id="ville" onkeyup="this.value=this.value.toUpperCase();" value=""></div>
+        </div>
+        <div class="form-z">Ville du Greffe *<br><input class="input" type="text" name="greffe" id="greffe"  value=""></div>
+        <input class="input" type="hidden" name="dpt" id="dpt" value="">
+        <input class="input" type="hidden" name="ville_greffe" id="ville_greffe" value="">
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-siege.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Informations de la société</h2></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Nom de la société *<br><input class="input" type="text" name="denomination" id="denomination" value=""></div>
+                <div class="form-r">Forme juridique de la société *<br>
+                        <div class="select"><select name="forme" id="forme" onchange="choixsoc();">
+                        <option value="">- Sélectionner une valeur -</option>
+                        <option value="1">SARL unipersonnelle</option>
+                        <option value="2">SARL unipersonnelle à capital variable</option>
+                        <option value="3">SARL</option>
+                        <option value="4">SARL à capital variable</option>
+                        <option value="5">SELARL</option>
+                        <option value="6">SELARL à capital variable</option>
+                        <option value="7">SAS</option>
+                        <option value="8">SAS à capital variable</option>
+                        <option value="9">SASU</option>
+                        <option value="10">SASU à capital variable</option>
+                        <option value="11">SA</option>
+                        <option value="12">SCI</option>
+                        </select></div>
+                </div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Capital *<br><input class="input" type="text" name="capital" id="capital" value=""><span class="help">Tel que mentionné dans les statuts avec les centimes s'il y a lieu.</span></div>
+                <div class="form-r">N° RCS *<br><input class="input" type="text" name="rcs" id="rcs" value=""><span class="help">Le n° de RCS est formé des 9 premiers chiffres du n° de SIREN.</span></div>
+        </div>
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-siege.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Assemblée de clôture</h2></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Type d'assemblée *<br>
+                        <div class="select"><select name="type_ass" id="type_ass" onchange="choixass();">
+                        <option value="">- Sélectionner une valeur -</option>
+                        <option value="1">AGO</option>
+                        <option value="2">AGE</option>
+                        <option value="3">AGM</option>
+                        <option value="4">Gérant</option>
+                        <option value="5">Président</option>
+                        <option value="6">Associé unique</option>
+                        <option value="7">Conseil d'administration</option>
+                        <option value="8">Autre</option>
+                        </select></div>
+                </div>
+                <div class="form-r">Autre type d'assemblée<br><input class="input" type="text" name="autre_type" id="autre_type" value=""><span class="help">Obligatoire si Autre est sélectionné.</span></div>
+        </div>
+        <div class="form-z">
+                <div class="form-l">Date de l'assemblée *<br><input class="input hasDatepicker" type="text" name="dt_assemblee" id="datepicker" value=""></div>
+                <div class="form-r">Date d'effet *<br><input class="input hasDatepicker" type="text" name="dt_effet" id="datepicker2" value=""><span class="help">Impérativement le même jour ou avant</span></div>
+        </div>
+        <div class="form-y">
+                <div class="form-c"><img src="https://www.litinerant.fr/images/site/picto-gerant.png" alt=""></div>
+                <div class="form-d"><h2 class="bleu">Liquidateur</h2></div>
+        </div>
+        <div id="liquidateur1">
+                <h2>Liquidateur 1</h2>
+                <br style="clear: both">
+                <div class="form-z">Personne physique / Société *<br>
+                        <div class="select">
+                        <select name="type_pers1" id="type_pers1" onchange="choixpers1();">
+                                <option value="">- Sélectionner une valeur -</option>
+                                <option value="1">Personne physique</option>
+                                <option value="2">Société</option>
+                        </select>
+                        </div>
+                </div>
+                <div style="display:none" id="phy1">
+                        <div class="form-z">Civilité *<br>
+                                <div class="select">
+                                        <select name="civilite1" id="civilite1">
+                                                <option value="">- Sélectionner une valeur -</option>
+                                                <option value="1">M.</option>
+                                                <option value="2">Mme</option>
+                                                <option value="3">Mlle</option>
+                                                <option value="4">Doct.</option>
+                                                <option value="5">Me.</option>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Prénom *<br><input class="input" type="text" name="prenom1" id="prenom1" value=""></div>
+                                <div class="form-r">Nom *<br><input class="input" type="text" name="nom1" id="nom1" value=""></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Adresse *<br><input class="input" type="text" name="p_adresse1" id="p_adresse1" value=""></div>
+                                <div class="form-r"><span class="texte-gris">Complément d’adresse</span><br><input class="input" type="text" name="p_com_adr1" id="p_com_adr1" value=""><span class="help">Ex. : bâtiment, boite postale, étage, etc.</span></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Code postal *<br><input class="input" type="text" name="p_code1" id="p_code1" onkeyup="verifNum(this)" value=""><span class="help">Tapez votre code postal et sélectionnez une ville dans la liste</span></div>
+                                <div class="form-r">Ville *<br><input class="input" type="text" name="p_ville1" id="p_ville1" onkeyup="this.value=this.value.toUpperCase();" value=""></div>
+                        </div>
+                        <div class="form-z"><input style="margin: 14px 0 10px" type="checkbox" name="etranger1"> <span class="texte-gris">Résidant à l’étranger</span></div>
+                </div>
+                <div style="display:none" id="mor1">
+                        <div class="form-z">
+                                <div class="form-l">Nom de la société *<br><input class="input" type="text" name="denomination1" id="denomination1" value=""><span class="help">Telle que mentionnée sur les statuts.</span></div>
+                                <div class="form-r">Forme juridique de la société *<br>
+                                <div class="select">
+                                        <select name="forme1" id="forme1">
+                                                <option value="">- Sélectionner une valeur -</option>
+                                                <option value="1">SARL unipersonnelle</option>
+                                                <option value="2">SARL unipersonnelle à capital variable</option>
+                                                <option value="3">SARL</option><option value="4">SARL à capital variable</option>
+                                                <option value="5">SELARL</option>
+                                                <option value="6">SELARL à capital variable</option>
+                                                <option value="7">SAS</option>
+                                                <option value="8">SAS à capital variable</option>
+                                                <option value="9">SASU</option>
+                                                <option value="10">SASU à capital variable</option>
+                                                <option value="11">SA</option>
+                                                <option value="12">SCI</option>
+                                        </select>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Capital *<input class="input" type="text" name="capital1" id="capital1" value=""><span class="help">Tel que mentionné dans les statuts avec les centimes s'il y a lieu.</span></div>
+                                <div class="form-r">N° RCS *<br><input class="input" type="text" name="rcs1" id="rcs1" value=""><span class="help">Le n° de RCS est formé des 9 premiers chiffres du n° de SIREN.</span></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Nom et prénom du représentant légal *<br><input class="input" type="text" name="rep1" id="rep1" value=""></div>
+                                <div class="form-r">Adresse *<br><input class="input" type="text" name="m_adresse1" id="m_adresse1" value=""></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l"><span class="texte-gris">Complément d’adresse</span><br><input class="input" type="text" name="m_com_adr1" id="m_com_adr1" value=""><span class="help">Ex. : bâtiment, boite postale, étage, etc.</span></div>
+                                <div class="form-r">Code postal *<br><input class="input" type="text" name="m_code1" id="m_code1" onkeyup="verifNum(this)" value=""><span class="help">Tapez votre code postal et sélectionnez une ville dans la liste</span></div>
+                        </div>
+                        <div class="form-z">
+                                <div class="form-l">Ville *<br><input class="input" type="text" name="m_ville1" id="m_ville1" onkeyup="this.value=this.value.toUpperCase();" value=""></div>
+                                <div class="form-r">Ville du Greffe *<br><input class="input" type="text" name="greffe1" id="greffe1" disabled="disabled" value=""></div>
+                                <input class="input" type="hidden" name="ville_greffe1" id="ville_greffe1" value="">
+                        </div>
+                </div>
+        </div>
+        <div id="liquidateurs"></div>
+        <p class="btn-droite"><button type="button" class="ajo_liquidateur bouton-gris" id="ajo-1">Ajouter un autre liquidateur</button></p>
+        <input type="hidden" name="listid" id="listid">
+        
+        
+        <div id="msg"></div>
+        <p class="btn-droite"><input class="bouton-rouge" type="submit" name="valider" value="Enregistrez et visualisez votre annonce"></p>
+        </form>
+        </div-->
+
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+
+
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+</div>
+
+<!-- ./wrapper -->
+{% endblock %}
+{% include "@Backoffice/Default/footer.html.twig" %}

@@ -1,0 +1,21 @@
+BackofficeBundle\Entity\Responsable:
+    type: entity
+    table: null
+    repositoryClass: BackofficeBundle\Repository\ResponsableRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        username:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,109 @@
+{% include "@Backoffice/Default/menu.html.twig" %}
+{% block contenu %}
+    <div class="content-wrapper">
+
+        <section class="content-header">
+            <h1>
+                Gestion Page d'accueil
+
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Gestion Page d'accueil</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">
+						{% if app.request.query.get('modif')=='1' %} <a class="btn btn-sm btn-success" href='#'>
+                                {{ "Les Informations sont bien modifié!!" }} 
+                            </a>{% endif  %}
+                        
+						
+						</h3>
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+                        <div class="modal-body">
+                            <div  class="form-horizontal form-label-left">
+                                {{ form_start(form) }}
+                                <div class="form-group">
+                                    {{ form_label(form.bloc1) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.bloc1) }}
+                                    </div>
+                                </div>
+                                </br>   
+                                <div class="form-group">
+                                    {{ form_label(form.titrebloc2) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.titrebloc2) }}
+                                    </div>
+                                </div>
+                                </br>   
+                                <div class="form-group">
+                                    {{ form_label(form.bloc2) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.bloc2) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form_label(form.tbloc3) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.tbloc3) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form_label(form.bloc3) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.bloc3) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form_label(form.tbloc4) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.tbloc4) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form_label(form.bloc4) }}
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        {{ form_widget(form.bloc4) }}
+                                    </div>
+                                </div>
+
+
+                                <div class="modal-footer">
+                                    {{ form_widget(form.bloc4) }}
+                                    
+                                </div>
+                                {{ form_end(form) }}                          
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+
+
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row (main row) -->
+
+        </section>
+    </div>
+{% endblock %}
+{% include "@Backoffice/Default/footer.html.twig" %}

@@ -1,0 +1,11 @@
+login_homepage:
+    path:     /login
+    defaults: { _controller: LoginBundle:Default:index }
+    
+inscription:
+    path:     /inscription
+    defaults: { _controller: LoginBundle:Default:register }
+    
+valide_inscription:
+    path:     /valide_inscription
+    defaults: { _controller: LoginBundle:Default:valideinscription }

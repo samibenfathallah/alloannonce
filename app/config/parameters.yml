@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: alloanno_BD
+    database_user: alloanno_BD
+    database_password: alloannonce2018Legale!
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: samibenfathallah@gmail.com
+    mailer_password: 123456
+    secret: f067b0e8e17c00cee4cead97cf894988ac96d2c8

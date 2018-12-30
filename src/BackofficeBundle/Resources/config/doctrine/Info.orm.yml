@@ -1,0 +1,62 @@
+BackofficeBundle\Entity\Info:
+    type: entity
+    table: null
+    repositoryClass: BackofficeBundle\Repository\InfoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: text
+        tel:
+            type: string
+            length: '50'
+        adresse:
+            type: text
+        bloc1:
+            type: text
+        titrebloc2:
+            type: text
+        bloc2:
+            type: text
+        tbloc3:
+            type: text
+        bloc3:
+            type: text
+        tbloc4:
+            type: text
+        bloc4:
+            type: text
+        tbloc5:
+            type: text
+        bloc5:
+            type: text
+        tbloc6l:
+            type: text
+        bloc6l:
+            type: string
+            length: 255
+        tbloc6r:
+            type: text
+        bloc6r:
+            type: text
+        tbloc7:
+            type: text
+        bloc7:
+            type: text
+        tbloc8:
+            type: text
+        bloc8:
+            type: text
+        tbloc9:
+            type: text
+        bloc9:
+            type: text
+        prixligne:
+            type: float
+        nbrelettreligne:
+            type: integer
+    lifecycleCallbacks: {  }

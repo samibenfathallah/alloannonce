@@ -1,0 +1,117 @@
+{% include "@Backoffice/Default/menu.html.twig" %}
+{% block contenu %}
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Gestion des utilisateurs <a class="btn btn-sm btn-primary" href='{{path('liste_users')}}'>
+                    Retour  
+                </a> {% if erreur is defined %} <a class="btn btn-sm btn-danger" href='#'>
+                    {{ "Merci de taper la même mot de passe!!" }} 
+                </a>{% endif  %} 
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Modifier Utilisateur</li>
+            </ol>
+        </section>
+
+
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title"></h3>
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+                        <div class="modal-body">
+                            <form id="add-form"  method='POST' action='{{ path("edit_valide_user")}}' data-parsley-validate class="form-horizontal form-label-left">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Name  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text"  name="name" required="required" value="{{ responsable.username }}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Email  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="email"  name="email" required="required" value="{{ responsable.email }}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Statut  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select name="statut" class="form-control col-md-7 col-xs-12">
+                                            <option value="{{ responsable.enabled }}">{% if responsable.enabled=="0"  %}{{ "Non Active" }} {% else %} {{ "Active" }} {% endif %}</option>
+                                            <option value="0">Non Active</option>
+                                            <option value="1">Active</option>
+                                        </select> 
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Role  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select name="role" class="form-control col-md-7 col-xs-12">
+                                            <option value="{% if responsable.Roles[0]=='ROLE_ADMIN' %}{{"1"}}{% else %} {{ "0" }} {% endif %}">{% if responsable.Roles[0]=='ROLE_ADMIN' %} {{ "Admin" }} {% else %} {{ "Non Admin" }} {% endif %}</option>
+                                            <option value="0">Non Admin</option>
+                                            <option value="1">Admin</option>
+                                        </select> 
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Mot de passe  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="password"  name="mp1" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modal-name"> Saisir à nouveau le Mot de passe  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="password"  name="mp2" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <!-- <div class="ln_solid"></div>-->
+                                <input type="hidden"  name="idresponsable" required="required" value="{{ responsable.id }}" class="form-control col-md-7 col-xs-12">
+
+                                <div class="modal-footer">
+
+                                    <button type="submit" class="btn btn-success btn-add"><i class="fa fa-plus"></i>   Modifier  </button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+
+
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row (main row) -->
+
+        </section>
+
+    </div>
+{% endblock %}
+
+{% include "@Backoffice/Default/footer.html.twig" %}
